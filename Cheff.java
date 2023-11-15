@@ -1,3 +1,5 @@
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
  * Interfaz Cheff que implementa el comportamiento de los trabajadores del tipo
  * Cheff dentro de Monster Inc
@@ -13,13 +15,19 @@ public abstract class Cheff implements Oficio {
 
     // Lista de platillos que puede cocinar.
     private Platillo[] lista_platillos;
+    private String nombre;
 
     /**
      * Clase Cheff, pasar id de hilo o monstruo.
      * @param id_hilo identificador del monstruo.
      */
-    public Cheff (int id_hilo){
+    public Cheff (int id_hilo, String nombre){
        this.id_hilo = id_hilo;
+       this.nombre = nombre;
+    }
+
+    protected int get_id_hilo(){
+        return id_hilo;
     }
 
     /**
@@ -29,7 +37,7 @@ public abstract class Cheff implements Oficio {
      * @param inventario      inventario con el cual se va a trabajar
      * @throws InterruptedException error
      */
-    protected void preparar_comida(int id_del_platillo, int[] inventario) throws InterruptedException {
+    protected void preparar_comida(int id_del_platillo, AtomicInteger[] inventario) throws InterruptedException {
         for (int i = 0; i < lista_platillos.length; i++) {
 
             // Se encontro el platillo.
@@ -37,18 +45,18 @@ public abstract class Cheff implements Oficio {
                 Platillo aux = lista_platillos[i];
 
                 // Vemos si hay ingredientes.
-                if (aux.get_cantidad_de_carne() <= inventario[0] && aux.get_cantidad_de_vegetales() <= inventario[1]) {
+                if (aux.get_cantidad_de_carne() <= inventario[0].get() && aux.get_cantidad_de_vegetales() <= inventario[1].get()) {
 
                     set_Inventario(inventario, aux);
 
                     System.out.println("Preparando " + aux.get_nombre_de_platillo());
                     Thread.sleep(1000);
-                    System.out.println("Cocinero " + id_hilo + " preparo " + aux.get_nombre_de_platillo());
+                    System.out.println("Cocinero " + nombre + " preparo " + aux.get_nombre_de_platillo());
 
                 } else {
 
                     // Falta carne
-                    if (aux.get_cantidad_de_carne() > inventario[0]) {
+                    if (aux.get_cantidad_de_carne() > inventario[0].get()) {
 
                         System.out.println("Falta de carne para " + aux.get_identificador_platillo() + " cocinero "
                                 + id_hilo + " llena el inventario de carne");
@@ -57,7 +65,7 @@ public abstract class Cheff implements Oficio {
 
                         System.out.println("Preparando " + aux.get_nombre_de_platillo());
                         Thread.sleep(1000);
-                        System.out.println("Cocinero " + id_hilo + " preparo " + aux.get_nombre_de_platillo());
+                        System.out.println("Cocinero " + nombre + " preparo " + aux.get_nombre_de_platillo());
 
                     } else {
 
@@ -69,7 +77,7 @@ public abstract class Cheff implements Oficio {
 
                         System.out.println("Preparando " + aux.get_nombre_de_platillo());
                         Thread.sleep(1000);
-                        System.out.println("Cocinero " + id_hilo + " preparo " + aux.get_nombre_de_platillo());
+                        System.out.println("Cocinero " + nombre + " preparo " + aux.get_nombre_de_platillo());
 
                     }
                 }
@@ -102,9 +110,9 @@ public abstract class Cheff implements Oficio {
      * @param consumir   platillo que consumira los recursos.
      */
     // Concurrente
-    protected void set_Inventario(int[] inventario, Platillo consumir) {
-        inventario[0] -= consumir.get_cantidad_de_carne();
-        inventario[1] -= consumir.get_cantidad_de_vegetales();
+    protected void set_Inventario(AtomicInteger[] inventario, Platillo consumir) {
+        inventario[0].set(inventario[0].get() - consumir.get_cantidad_de_carne());
+        inventario[1].set(inventario[1].get() - consumir.get_cantidad_de_vegetales());
     }
 
     /**
@@ -114,8 +122,8 @@ public abstract class Cheff implements Oficio {
      * @param a_llenar   0 si se va a llenar carne, 1 si se va a llenar vegetales.
      */
     // Concurrente
-    protected void llenar_Inventario(int[] inventario, int a_llenar) {
-        inventario[a_llenar] = 1000;
+    protected void llenar_Inventario(AtomicInteger[] inventario, int a_llenar) {
+        inventario[a_llenar].set(1000);
     }
 
 }
