@@ -1,5 +1,7 @@
-package com.monstersinc.cafeteria;
+package com.monstersinc.oficio;
 import java.util.concurrent.atomic.AtomicInteger;
+
+import com.monstersinc.cafeteria.Platillo;
 
 /**
  * Interfaz Cheff que implementa el comportamiento de los trabajadores del tipo

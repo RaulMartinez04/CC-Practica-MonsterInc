@@ -1,6 +1,9 @@
 package com.monstersinc.monstruo;
 import java.util.Random;
 
+import com.monstersinc.cafeteria.Cafeteria;
+import com.monstersinc.oficio.Oficio;
+
 /**
  * Clase Monstruo que implementa el comportamiento de un Monstruo dentro
  * de Monster Inc

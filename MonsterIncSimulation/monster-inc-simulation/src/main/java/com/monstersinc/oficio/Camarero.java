@@ -1,4 +1,7 @@
-package com.monstersinc.cafeteria;
+package com.monstersinc.oficio;
+
+import com.monstersinc.cafeteria.Platillo;
+
 /**
  * Clase Ayudante de cocina que implementa el comportamiento de un Cheff dentro
  * de la cafeteria de Monster Inc

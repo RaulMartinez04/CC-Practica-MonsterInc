@@ -1,4 +1,4 @@
-package com.monstersinc.cafeteria;
+package com.monstersinc.oficio;
 /**
  * Clase Ayudante de cocina que implementa el comportamiento de un Cheff dentro
  * de la cafeteria de Monster Inc
@@ -6,29 +6,29 @@ package com.monstersinc.cafeteria;
  * @author Villanueva Garcia Israel. No. 317052147
  * @since Computo Concurrente.
  */
-public class Ayudante_cocina extends Cheff {
+public class Chef_profesional extends Cheff {
 
     /**
-     * Metodo constructor de un ayudante de cocina.
+     * Constructor de un chef profesional.
      * @param id_hilo
      */
-    Ayudante_cocina(int id_hilo, String nombre) {
+    public Chef_profesional(int id_hilo, String nombre) {
         super(id_hilo, nombre);
     }
 
     @Override
     public int get_ID_Oficio() {
-        return 0;
+        return 3;
     }
 
     @Override
     public String get_Nombre_Oficio() {
-        return "Ayudante de cocina";
+        return "Cheff de Harryhausens";
     }
 
     @Override
     public String get_descripcion() {
-        return "Un cheff que se dedica a ayudar al Cheff profesional de Harryhausens";
+        return "Un cheff de Harryhausens, el casi nunca cocina pero se dice que puede cocinar de todo";
     }
 
 }

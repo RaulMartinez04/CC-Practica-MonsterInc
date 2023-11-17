@@ -1,8 +1,8 @@
 package com.monstersinc.monstruo;
 
-import com.monstersinc.cafeteria.Ayudante_cocina;
 import com.monstersinc.cafeteria.Cafeteria;
-import com.monstersinc.cafeteria.Chef_profesional;
+import com.monstersinc.oficio.Ayudante_cocina;
+import com.monstersinc.oficio.Chef_profesional;
 
 public class MonsterInc {
 

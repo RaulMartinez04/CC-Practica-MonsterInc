@@ -1,7 +1,7 @@
 package com.monstersinc.monstruo;
 
 import com.monstersinc.cafeteria.Cafeteria;
-import com.monstersinc.cafeteria.Oficio;
+import com.monstersinc.oficio.Oficio;
 
 public class Peludos extends Monstruo{
 

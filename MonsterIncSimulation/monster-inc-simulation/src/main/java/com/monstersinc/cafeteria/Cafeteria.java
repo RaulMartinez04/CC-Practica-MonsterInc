@@ -6,7 +6,11 @@ import java.util.Random;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import com.monstersinc.item.Mesa;
 import com.monstersinc.monstruo.Monstruo;
+import com.monstersinc.oficio.Ayudante_cocina;
+import com.monstersinc.oficio.Chef_profesional;
+import com.monstersinc.oficio.Recepcionista;
 
 /**
  * Clase Cafeteria de Monster Inc.

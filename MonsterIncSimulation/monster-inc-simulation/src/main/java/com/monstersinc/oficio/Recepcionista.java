@@ -1,4 +1,9 @@
+package com.monstersinc.oficio;
 import java.util.List;
+
+import com.monstersinc.item.Mesa;
+import com.monstersinc.monstruo.Monstruo;
+
 
 /**
  * Clase Ayudante de cocina que implementa el comportamiento de un Cheff dentro

@@ -1,3 +1,4 @@
+package com.monstersinc.oficio;
 /**
  * Interfaz oficio que implementa el comportamiento de los trabajos de los monstruos dentro de Monster Inc
  * 
