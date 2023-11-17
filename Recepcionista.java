@@ -47,6 +47,12 @@ public class Recepcionista implements Oficio {
         return this.id_hilo;
     }
 
+    /**
+     * Metodo que asigna un lugar a un cliente en una lista de mesas.
+     * @param cliente a asignar lugar.
+     * @param lista_De_Mesas que usar
+     * @return True si si hubo un lugar, False si no hubo un lugar.
+     */
     public boolean asignar_lugar(Monstruo cliente, List<Mesa> lista_De_Mesas) {
         for (int i = 0; i < lista_De_Mesas.size(); i++) {
             if (lista_De_Mesas.get(i).ocupar_lugar(cliente)) {

@@ -1,6 +1,6 @@
 /**
  * Clase Ayudante de cocina que implementa el comportamiento de un Cheff dentro
- * de la cafeteria de Monster Inc
+ * de la cafeteria de Monster Inc (Descartado)
  * 
  * @author Villanueva Garcia Israel. No. 317052147
  * @since Computo Concurrente.
