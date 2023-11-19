@@ -37,6 +37,29 @@ public abstract class Monstruo implements Runnable {
         this.id_hilo = ThreadID.get();
     }
 
+    public Monstruo(String nombre, int tipo) {
+        this.tipo = tipo;
+        this.nombre = nombre;
+        this.id_hilo = ThreadID.get();
+    }
+
+    public int getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
+    }
+
+    public int getId_hilo() {
+        return id_hilo;
+    }
+
+    public void setId_hilo(int id_hilo) {
+        this.id_hilo = id_hilo;
+    }
+
+
     /**
      * Decide que hacer el monstruo.
      * 
@@ -71,7 +94,7 @@ public abstract class Monstruo implements Runnable {
      * Simulacion del monstruo al ir al sanitario.
      */
     public void ir_al_sanitario() {
-
+        
     }
 
     /**
