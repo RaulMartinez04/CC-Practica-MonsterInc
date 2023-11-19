@@ -5,17 +5,14 @@
  * @author Villanueva Garcia Israel. No. 317052147
  * @since Computo Concurrente.
  */
-public class Camarero implements Oficio {
-
-    // Id del Hilo, del monstruo.
-    private int id_hilo;
+public class Camarero extends Oficio {
 
     /**
      * Metodo constructor de la clase camarero.
      * @param id_hilo del hilo en ejecucion.
      */
     public Camarero(int id_hilo){
-       super();
+       super(id_hilo);
        this.id_hilo = id_hilo;
     }
 
@@ -32,14 +29,6 @@ public class Camarero implements Oficio {
     @Override
     public String get_descripcion() {
         return "Un cheff que se dedica a ayudar al Cheff profesional de Harryhausens";
-    }
-
-    /**
-     * Regresa el id del hilo en ejecucion.
-     * @return id del hilo en ejecucion.
-     */
-    public int get_id_hilo(){
-        return this.id_hilo;
     }
 
     public void llevar_comida(int id_mesa, Platillo platillo){

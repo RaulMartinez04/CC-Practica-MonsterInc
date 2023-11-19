@@ -7,10 +7,7 @@ import java.util.List;
  * @author Villanueva Garcia Israel. No. 317052147
  * @since Computo Concurrente.
  */
-public class Recepcionista implements Oficio {
-
-    // Id del Hilo, del monstruo.
-    private int id_hilo;
+public class Recepcionista extends Oficio {
 
     /**
      * Metodo constructor de la clase camarero.
@@ -18,8 +15,8 @@ public class Recepcionista implements Oficio {
      * @param id_hilo del hilo en ejecucion.
      * @param string
      */
-    public Recepcionista(int id_hilo, String string) {
-        super();
+    public Recepcionista(int id_hilo) {
+        super(id_hilo);
         this.id_hilo = id_hilo;
     }
 
@@ -39,30 +36,23 @@ public class Recepcionista implements Oficio {
     }
 
     /**
-     * Regresa el id del hilo en ejecucion.
-     * 
-     * @return id del hilo en ejecucion.
-     */
-    public int get_id_hilo() {
-        return this.id_hilo;
-    }
-
-    /**
      * Metodo que asigna un lugar a un cliente en una lista de mesas.
-     * @param cliente a asignar lugar.
+     * 
+     * @param cliente        a asignar lugar.
      * @param lista_De_Mesas que usar
      * @return True si si hubo un lugar, False si no hubo un lugar.
      */
     public boolean asignar_lugar(Monstruo cliente, List<Mesa> lista_De_Mesas) {
         for (int i = 0; i < lista_De_Mesas.size(); i++) {
             if (lista_De_Mesas.get(i).ocupar_lugar(cliente)) {
-                System.out.println("El recepcionista llevo al monstruo " + cliente.nombre + " a la mesa "
-                        + lista_De_Mesas.get(i).get_id_mesa());
+                System.out.println(
+                        ColorsAthena.rojo("El recepcionista llevo al monstruo " + cliente.nombre + " a la mesa "
+                                + lista_De_Mesas.get(i).get_id_mesa()));
                 return true;
             }
         }
 
-        System.out.println("El recepcionista no encontro mesa ):");
+        System.out.println(ColorsAthena.rojo("El recepcionista no encontro mesa ):"));
         return false;
     }
 

@@ -19,7 +19,7 @@ public class Mesa extends Item {
     private int sillas_usadas = 0;
 
     // Monstruos en la mesa.
-    private List<Monstruo> monstruos;
+    private volatile List<Monstruo> monstruos;
 
     /**
      * Constructor de la clase Mesa.

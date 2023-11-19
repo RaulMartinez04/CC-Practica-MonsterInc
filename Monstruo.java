@@ -152,7 +152,7 @@ public abstract class Monstruo implements Runnable {
         } else {
         
         //Para monstruos con mas libertad.
-            while (iterador <= 0) {
+            while (iterador++ <= 0) {
                 switch (decidir_que_hacer()) {
 
                     //Ir al sanitario
@@ -185,7 +185,6 @@ public abstract class Monstruo implements Runnable {
                     default:
                         break;
                 }
-                iterador++;
             }
 
         }
