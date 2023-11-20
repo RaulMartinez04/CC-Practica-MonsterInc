@@ -3,6 +3,10 @@ import java.util.Random;
 
 import com.monstersinc.cafeteria.Cafeteria;
 import com.monstersinc.oficio.Oficio;
+import com.monstersinc.vestuario.Casillero;
+import com.monstersinc.vestuario.Vestidor;
+
+import lombok.Data;
 
 /**
  * Clase Monstruo que implementa el comportamiento de un Monstruo dentro
@@ -11,29 +15,48 @@ import com.monstersinc.oficio.Oficio;
  * @author Villanueva Garcia Israel. No. 317052147
  * @since Computo Concurrente.
  */
+@Data
 public abstract class Monstruo implements Runnable {
 
     // Nombre del monstruo.
-    protected String nombre;
-
+    private String nombre;
     // Tipo de monstruo.
-    protected int tipo;
+    private int tipo;
 
     // Trabajo del monstruo.
-    public Oficio trabajo;
+    private Oficio trabajo;
 
-    // ID del hilo.
-    public int id_hilo;
+    public int getTipo() {
+		return tipo;
+	}
+
+	public int getId_hilo() {
+		return id_hilo;
+	}
+
+	public void setTipo(int tipo) {
+		this.tipo = tipo;
+	}
+
+	public void setId_hilo(int id_hilo) {
+		this.id_hilo = id_hilo;
+	}
+
+	// ID del hilo.
+    private int id_hilo;
 
     // Peso del monstruo.
-    protected double peso;
+    private double peso;
 
     // Altura del monstruo.
-    protected double altura;
+    private double altura;
 
-    protected Cafeteria cafeteria;
+    private Cafeteria cafeteria;
+    
+    private Vestidor vestidor; 
 
-    public Monstruo(Cafeteria cafeteria, String nombre, Oficio trabajo) {
+    public Monstruo(Cafeteria cafeteria, String nombre, Oficio trabajo,
+    				int numCasillero, String passCasillero) {
         this.cafeteria = cafeteria;
         this.cafeteria = cafeteria;
         this.nombre = nombre;
@@ -41,6 +64,18 @@ public abstract class Monstruo implements Runnable {
         this.id_hilo = ThreadID.get();
     }
 
+    // Método toString para imprimir bonito
+    @Override
+    public String toString() {
+        return "Monstruo{" +
+                "nombre='" + nombre + '\'' +
+                ", tipo='" + tipo + '\'' +
+                ", id ='" + id_hilo + '\'' +
+                ", peso=" + peso + '\'' +
+                ", altura=" + altura+ '\'' +
+                '}';
+    }
+    
     /**
      * Decide que hacer el monstruo.
      * 
@@ -82,7 +117,22 @@ public abstract class Monstruo implements Runnable {
      * Simulacion del monstruo al ir al vestuario.
      */
     public void ir_al_vestuario() {
-
+    	Casillero casillero = vestidor.ingresarCasillero(this.id_hilo);
+    	if (casillero != null) {
+            // Realizar acciones en el vestuario
+            
+    		System.out.println(this.nombre + " está en el vestidor...");
+            // Es la manera más simple que encontré de simular que algo está tomando tiempo
+    		// PERO COMO OBTENGO EL HILO CON EL ID_HILO? 
+            //Thread.sleep(1000); // Simulación de tiempo en el vestidor
+    		
+    		System.out.println(this.nombre + " Dejara sus cosas personales...\n");
+    		//Thread.sleep(1000); // Simulación de tiempo en el vestidor
+    		
+    		System.out.println(this.nombre + " se pone olorante y su casco...\n");
+            // Al salir del vestuario, desocupar el casillero
+            casillero.desocuparCasillero();
+        }
     }
 
     /**
