@@ -21,6 +21,7 @@ public abstract class Monstruo implements Runnable {
     // ID del hilo.
     public int id_hilo;
 
+
     // Peso del monstruo.
     protected double peso;
 
@@ -30,7 +31,12 @@ public abstract class Monstruo implements Runnable {
     protected Cafeteria cafeteria;
 
     protected Sanitarios sanitarios;
-
+    /**
+     * Constructor de Monstruo.
+     * @param cafeteria que va a usar.
+     * @param nombre del monstruo.
+     * @param trabajo trabajo del monstruo.
+     */
     public Monstruo(Cafeteria cafeteria, String nombre, Oficio trabajo) {
         this.cafeteria = cafeteria;
         this.sanitarios = new Sanitarios();
@@ -39,22 +45,13 @@ public abstract class Monstruo implements Runnable {
         this.id_hilo = ThreadID.get();
     }
 
-    public int getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(int tipo) {
-        this.tipo = tipo;
-    }
-
     public int getId_hilo() {
         return id_hilo;
     }
 
-    public void setId_hilo(int id_hilo) {
-        this.id_hilo = id_hilo;
+    public int getTipo() {
+        return tipo;
     }
-
 
     /**
      * Decide que hacer el monstruo.
@@ -68,8 +65,8 @@ public abstract class Monstruo implements Runnable {
         // Genera un número aleatorio entre 0 y 9
         int numeroRandom = random.nextInt(9);
 
-        // Si el número generado es menor o igual que 5, devuelve 2
-        if (numeroRandom <= 5) {
+        // Si el número generado es menor o igual que 4, devuelve 2
+        if (numeroRandom <= 4) {
             return 2;
         } else {
             // Si no, devuelve el número aleatorio normal (0 o 1)
@@ -121,7 +118,9 @@ public abstract class Monstruo implements Runnable {
             // Eres un recepcionista, ve a la cafeteria.
             case 1:
                 cafeteria.entrar_cafeteria(this);
+                break;
 
+            // No tienes trabajo??
             default:
                 System.out.println("Algo no se esta asignando bienn )):");
                 break;
@@ -132,6 +131,10 @@ public abstract class Monstruo implements Runnable {
         private static volatile int nextID = 0;
         private static ThreadLocal<Integer> threadID = ThreadLocal.withInitial(() -> nextID++);
 
+        /**
+         * Devuelve el id del hilo.
+         * @return id del hilo.
+         */
         public static int get() {
             return threadID.get();
         }
@@ -156,10 +159,12 @@ public abstract class Monstruo implements Runnable {
                 e.printStackTrace();
             }
         } else {
-          // Hay algo raro aqui
-            while (iterador == 1) {
-                // switch (decidir_que_hacer()) {
+        
+        //Para monstruos con mas libertad.
+            while (iterador++ <= 0) {
                 switch (decidir_que_hacer()) {
+
+                    //Ir al sanitario
                     case 0:
                         try {
                             ir_al_sanitario();
@@ -169,6 +174,7 @@ public abstract class Monstruo implements Runnable {
 
                         break;
 
+                    //Ir a comer.
                     case 1:
 
                         try {
@@ -179,6 +185,7 @@ public abstract class Monstruo implements Runnable {
 
                         break;
 
+                    //Ir a trabajar.
                     case 2:
 
                         try {
@@ -195,6 +202,7 @@ public abstract class Monstruo implements Runnable {
             }
 
         }
+        
         // Debe ir al vestuario antes de irse.
 
     }

@@ -52,7 +52,7 @@ public class Sanitario {
 
 			// Simular el tiempo que tarda un monstruo en usar el retrete.
             try {
-                Thread.sleep(60000); // Simulación de 1 minuto.
+                Thread.sleep(10000); // Simulación de uso.
 				this.retretesDisponibles++;
 				System.out.println("Monstruo " + monstruo.getId_hilo() + " dejó de usar uno de los retretes.");
             } catch (InterruptedException e) {

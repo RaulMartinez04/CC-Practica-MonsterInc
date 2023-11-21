@@ -11,8 +11,8 @@ public class Ayudante_cocina extends Cheff {
      * Metodo constructor de un ayudante de cocina.
      * @param id_hilo
      */
-    Ayudante_cocina(int id_hilo, String nombre) {
-        super(id_hilo, nombre);
+    public Ayudante_cocina(int id_hilo) {
+        super(id_hilo);
     }
 
     @Override
