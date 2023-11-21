@@ -27,12 +27,12 @@ public class Recepcionista extends Oficio {
 
     @Override
     public String get_Nombre_Oficio() {
-        return "Mesero de la cafeteria";
+        return "Recepcionista";
     }
 
     @Override
     public String get_descripcion() {
-        return "Un cheff que se dedica a ayudar al Cheff profesional de Harryhausens";
+        return "Un Recepcionista de la cafeteria de MonsterInc";
     }
 
     /**
