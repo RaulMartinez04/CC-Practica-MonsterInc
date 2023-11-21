@@ -18,7 +18,7 @@ public class Mesa extends Item {
     private int sillas_usadas = 0;
     private List<Monstruo> monstruos;
 
-    Mesa(int id_mesa) {
+    public Mesa(int id_mesa) {
         this.nombre = "Mesa";
         this.id_mesa = id_mesa;
         this.capacidad_mesa = genera_capacidad();

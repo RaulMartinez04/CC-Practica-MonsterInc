@@ -1,10 +1,14 @@
 package com.monstersinc.cafeteria;
+
+import lombok.Data;
+
 /**
  * Interfaz Platillo que implementa el comportamiento de un Platillo dentro de la cafeteria de Monster Inc
  * 
  * @author Villanueva Garcia Israel. No. 317052147
  * @since Computo Concurrente.
  */
+@Data
 public abstract class Platillo {
 
     // Nombre del platillo.
@@ -23,7 +27,7 @@ public abstract class Platillo {
      * Obten el nombre del platillo.
      * @return nombre del platillo.
      */
-    protected String get_nombre_de_platillo(){
+    public String get_nombre_de_platillo(){
         return this.nombre;
     }
 
@@ -31,7 +35,7 @@ public abstract class Platillo {
      * Cantidad de carne del platillo.
      * @return cantidad de carne.
      */
-    protected int get_cantidad_de_carne(){
+    public int get_cantidad_de_carne(){
        return cantidad_carne;
     }
 
@@ -39,7 +43,7 @@ public abstract class Platillo {
      * Cantidad de vegetales del platillo.
      * @return cantidad de vegetales.
      */
-    protected int get_cantidad_de_vegetales(){
+    public int get_cantidad_de_vegetales(){
        return cantidad_vegetales;
     }
 
@@ -47,7 +51,7 @@ public abstract class Platillo {
      * Cambiar nombre del platillo.
      * @param nuevo_nombre xd
      */
-    protected void set_nombre_de_platillo(String nuevo_nombre){
+    public void set_nombre_de_platillo(String nuevo_nombre){
         this.nombre = nuevo_nombre;
     }
 
@@ -55,7 +59,7 @@ public abstract class Platillo {
      * Cambiar cantidad de carne requerida para el platillo.
      * @param cantidad de carne.
      */
-    protected void set_cantidad_de_carne(int cantidad){
+    public void set_cantidad_de_carne(int cantidad){
          this.cantidad_carne = cantidad;
     }
 
@@ -63,7 +67,7 @@ public abstract class Platillo {
      * Cambiar cantidad de vegetales requerida para el platillo.
      * @param cantidad de vegetales.
      */
-    protected void set_cantidad_de_vegetales(int cantidad){
+    public void set_cantidad_de_vegetales(int cantidad){
          this.cantidad_vegetales = cantidad;
     }
 
@@ -71,7 +75,7 @@ public abstract class Platillo {
      * Obtener identificador del platillo.
      * @return id del platillo.
      */
-    protected int get_identificador_platillo(){
+    public int get_identificador_platillo(){
           return this.identificador_platillo;
     }
 

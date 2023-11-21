@@ -14,6 +14,7 @@ public abstract class Item {
     protected String nombre;
 
     protected boolean roto = false;
+    
     /**
      * Regresa el dano del objeto hasta el momento.
      * 

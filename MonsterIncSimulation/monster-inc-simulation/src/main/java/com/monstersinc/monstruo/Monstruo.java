@@ -1,9 +1,9 @@
 package com.monstersinc.monstruo;
 import java.util.Random;
 
+import com.monstersinc.bannos.Sanitarios;
 import com.monstersinc.cafeteria.Cafeteria;
 import com.monstersinc.oficio.Oficio;
-import com.monstersinc.vestuario.Casillero;
 import com.monstersinc.vestuario.Vestidor;
 
 import lombok.Data;
@@ -19,63 +19,56 @@ import lombok.Data;
 public abstract class Monstruo implements Runnable {
 
     // Nombre del monstruo.
-    private String nombre;
+    protected String nombre;
+
     // Tipo de monstruo.
-    private int tipo;
+    protected int tipo;
 
     // Trabajo del monstruo.
-    private Oficio trabajo;
+    public Oficio trabajo;
 
-    public int getTipo() {
-		return tipo;
-	}
+    // ID del hilo.
+    public int id_hilo;
 
-	public int getId_hilo() {
-		return id_hilo;
-	}
-
-	public void setTipo(int tipo) {
-		this.tipo = tipo;
-	}
-
-	public void setId_hilo(int id_hilo) {
-		this.id_hilo = id_hilo;
-	}
-
-	// ID del hilo.
-    private int id_hilo;
 
     // Peso del monstruo.
-    private double peso;
+    protected double peso;
 
     // Altura del monstruo.
-    private double altura;
+    protected double altura;
 
-    private Cafeteria cafeteria;
+    protected Cafeteria cafeteria;
+
+    protected Sanitarios sanitarios;
     
-    private Vestidor vestidor; 
-
-    public Monstruo(Cafeteria cafeteria, String nombre, Oficio trabajo,
-    				int numCasillero, String passCasillero) {
+    protected Vestidor vestidor = Vestidor.getInstance();
+    /**
+     * Constructor de Monstruo.
+     * @param cafeteria que va a usar.
+     * @param nombre del monstruo.
+     * @param trabajo trabajo del monstruo.
+     */
+    public Monstruo(Cafeteria cafeteria, String nombre, Oficio trabajo) {
         this.cafeteria = cafeteria;
-        this.cafeteria = cafeteria;
+        this.sanitarios = new Sanitarios();
         this.nombre = nombre;
         this.trabajo = trabajo;
         this.id_hilo = ThreadID.get();
     }
 
-    // Método toString para imprimir bonito
-    @Override
-    public String toString() {
-        return "Monstruo{" +
-                "nombre='" + nombre + '\'' +
-                ", tipo='" + tipo + '\'' +
-                ", id ='" + id_hilo + '\'' +
-                ", peso=" + peso + '\'' +
-                ", altura=" + altura+ '\'' +
-                '}';
+    public int getId_hilo() {
+        return id_hilo;
+    }
+
+    public int getTipo() {
+        return tipo;
     }
     
+    public String getNombre() {
+        return nombre;
+    }
+    
+
     /**
      * Decide que hacer el monstruo.
      * 
@@ -88,8 +81,8 @@ public abstract class Monstruo implements Runnable {
         // Genera un número aleatorio entre 0 y 9
         int numeroRandom = random.nextInt(9);
 
-        // Si el número generado es menor o igual que 5, devuelve 2
-        if (numeroRandom <= 5) {
+        // Si el número generado es menor o igual que 4, devuelve 2
+        if (numeroRandom <= 4) {
             return 2;
         } else {
             // Si no, devuelve el número aleatorio normal (0 o 1)
@@ -110,29 +103,14 @@ public abstract class Monstruo implements Runnable {
      * Simulacion del monstruo al ir al sanitario.
      */
     public void ir_al_sanitario() {
-
+        sanitarios.usarSanitarios(this);
     }
 
     /**
      * Simulacion del monstruo al ir al vestuario.
      */
     public void ir_al_vestuario() {
-    	Casillero casillero = vestidor.ingresarCasillero(this.id_hilo);
-    	if (casillero != null) {
-            // Realizar acciones en el vestuario
-            
-    		System.out.println(this.nombre + " está en el vestidor...");
-            // Es la manera más simple que encontré de simular que algo está tomando tiempo
-    		// PERO COMO OBTENGO EL HILO CON EL ID_HILO? 
-            //Thread.sleep(1000); // Simulación de tiempo en el vestidor
-    		
-    		System.out.println(this.nombre + " Dejara sus cosas personales...\n");
-    		//Thread.sleep(1000); // Simulación de tiempo en el vestidor
-    		
-    		System.out.println(this.nombre + " se pone olorante y su casco...\n");
-            // Al salir del vestuario, desocupar el casillero
-            casillero.desocuparCasillero();
-        }
+    	vestidor.usarVestidor(this);
     }
 
     /**
@@ -156,7 +134,9 @@ public abstract class Monstruo implements Runnable {
             // Eres un recepcionista, ve a la cafeteria.
             case 1:
                 cafeteria.entrar_cafeteria(this);
+                break;
 
+            // No tienes trabajo??
             default:
                 System.out.println("Algo no se esta asignando bienn )):");
                 break;
@@ -167,6 +147,10 @@ public abstract class Monstruo implements Runnable {
         private static volatile int nextID = 0;
         private static ThreadLocal<Integer> threadID = ThreadLocal.withInitial(() -> nextID++);
 
+        /**
+         * Devuelve el id del hilo.
+         * @return id del hilo.
+         */
         public static int get() {
             return threadID.get();
         }
@@ -179,6 +163,8 @@ public abstract class Monstruo implements Runnable {
     public void run() {
 
         // Antes debe ir al vestuario.
+    	// No se como agregar esto de modo que se duerma cada hilo simulando la ejecución de ir al vestuario
+    	// pero se ocuparia: usarVestidor(this)
 
         int iterador = 0;
 
@@ -191,14 +177,22 @@ public abstract class Monstruo implements Runnable {
                 e.printStackTrace();
             }
         } else {
-          // Hay algo raro aqui
-            while (iterador == 1) {
-                // switch (decidir_que_hacer()) {
+        
+        //Para monstruos con mas libertad.
+            while (iterador++ <= 0) {
                 switch (decidir_que_hacer()) {
+
+                    //Ir al sanitario
                     case 0:
-                        System.out.println("En mantenimiento muacckkk");
+                        try {
+                            ir_al_sanitario();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
                         break;
 
+                    //Ir a comer.
                     case 1:
 
                         try {
@@ -209,6 +203,7 @@ public abstract class Monstruo implements Runnable {
 
                         break;
 
+                    //Ir a trabajar.
                     case 2:
 
                         try {
@@ -225,7 +220,8 @@ public abstract class Monstruo implements Runnable {
             }
 
         }
+        
         // Debe ir al vestuario antes de irse.
-
+    	// pero se ocuparia: usarVestidorSalida(this)
     }
 }

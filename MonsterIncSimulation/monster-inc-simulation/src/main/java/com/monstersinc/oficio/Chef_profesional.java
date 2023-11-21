@@ -12,8 +12,8 @@ public class Chef_profesional extends Cheff {
      * Constructor de un chef profesional.
      * @param id_hilo
      */
-    public Chef_profesional(int id_hilo, String nombre) {
-        super(id_hilo, nombre);
+    public Chef_profesional(int id_hilo) {
+        super(id_hilo);
     }
 
     @Override

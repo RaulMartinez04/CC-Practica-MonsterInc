@@ -14,7 +14,24 @@ public class Casillero {
     public Casillero(int numero) {
         this.numero = numero;
         this.cosas = new ArrayList<>();
+        this.cosas.add("Casco");
+        this.cosas.add("Olorante");
     }
+    
+    public boolean tieneMonstruo(int idMonstruo) {
+        //lock.lock();
+        try {
+            return idMonstruoActual == idMonstruo;
+        } finally {
+            //lock.unlock();
+        }
+    }
+
+    /*
+     * Este metodo simplemente compara el ID del monstruo 
+     * actualmente asignado al casillero con el ID del 
+     * monstruo proporcionado.
+     * */
     public boolean ocuparCasillero(int idMonstruo) {
         //lock.lock();
         try {
@@ -42,6 +59,8 @@ public class Casillero {
             //lock.unlock();
         }
     }
+    
+    
     
     public boolean agregarElemento(String elemento) {
         if (idMonstruoActual != -1) {

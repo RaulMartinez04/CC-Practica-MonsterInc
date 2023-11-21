@@ -1,6 +1,8 @@
 package com.monstersinc.cafeteria;
 /**
- * Clase Pozole de humano que implementa el comportamiento de un Platillo dentro de la cafeteria de Monster Inc
+ * Clase Pozole de humano que implementa el
+ * comportamiento de un Platillo dentro de la 
+ * cafeteria de Monster Inc.
  * 
  * @author Villanueva Garcia Israel. No. 317052147
  * @since Computo Concurrente.
