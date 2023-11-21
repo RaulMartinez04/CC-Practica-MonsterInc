@@ -31,15 +31,8 @@ public abstract class Monstruo implements Runnable {
 
     public Monstruo(Cafeteria cafeteria, String nombre, Oficio trabajo) {
         this.cafeteria = cafeteria;
-        this.cafeteria = cafeteria;
         this.nombre = nombre;
         this.trabajo = trabajo;
-        this.id_hilo = ThreadID.get();
-    }
-
-    public Monstruo(String nombre, int tipo) {
-        this.tipo = tipo;
-        this.nombre = nombre;
         this.id_hilo = ThreadID.get();
     }
 
