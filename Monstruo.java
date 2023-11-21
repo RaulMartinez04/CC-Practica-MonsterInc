@@ -29,8 +29,11 @@ public abstract class Monstruo implements Runnable {
 
     protected Cafeteria cafeteria;
 
+    protected Sanitarios sanitarios;
+
     public Monstruo(Cafeteria cafeteria, String nombre, Oficio trabajo) {
         this.cafeteria = cafeteria;
+        this.sanitarios = new Sanitarios();
         this.nombre = nombre;
         this.trabajo = trabajo;
         this.id_hilo = ThreadID.get();
@@ -87,7 +90,7 @@ public abstract class Monstruo implements Runnable {
      * Simulacion del monstruo al ir al sanitario.
      */
     public void ir_al_sanitario() {
-        
+        sanitarios.usarSanitarios(this);
     }
 
     /**
@@ -158,7 +161,12 @@ public abstract class Monstruo implements Runnable {
                 // switch (decidir_que_hacer()) {
                 switch (decidir_que_hacer()) {
                     case 0:
-                        System.out.println("En mantenimiento muacckkk");
+                        try {
+                            ir_al_sanitario();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
                         break;
 
                     case 1:
