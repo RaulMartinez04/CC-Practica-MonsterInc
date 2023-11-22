@@ -10,8 +10,5 @@ public class Peludos extends Monstruo{
         this.tipo = 1;
         this.peso = peso + 10;
         this.altura = altura + 100;
-    }
-
-
-    
+    }   
 }

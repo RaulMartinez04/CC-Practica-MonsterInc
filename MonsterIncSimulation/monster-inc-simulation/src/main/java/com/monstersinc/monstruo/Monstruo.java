@@ -6,8 +6,6 @@ import com.monstersinc.cafeteria.Cafeteria;
 import com.monstersinc.oficio.Oficio;
 import com.monstersinc.vestuario.Vestidor;
 
-import lombok.Data;
-
 /**
  * Clase Monstruo que implementa el comportamiento de un Monstruo dentro
  * de Monster Inc
@@ -15,7 +13,6 @@ import lombok.Data;
  * @author Villanueva Garcia Israel. No. 317052147
  * @since Computo Concurrente.
  */
-@Data
 public abstract class Monstruo implements Runnable {
 
     // Nombre del monstruo.

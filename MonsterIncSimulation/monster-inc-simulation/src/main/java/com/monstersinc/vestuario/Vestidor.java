@@ -91,8 +91,11 @@ public class Vestidor {
     		//Thread.sleep(1000); // Simulación de tiempo en el vestidor
     		
     		System.out.println(monstruo.getNombre() + " toma del casillero y se pone olorante y su casco\n");
-    		//cas.retirarElemento("Casco");
-    		//cas.retirarElemento("Olorante");
+    		cas.retirarElemento("Casco");
+    		cas.retirarElemento("Olorante");
+    		System.out.println(monstruo.getNombre() + " vuelve a guardar el olorante en su casillero\n");
+    		//cas.agregarElemento("Casco");
+    		cas.agregarElemento("Olorante");
             
     		// Al salir del vestuario, tiene que salir del casillero. 
             //cas.salirCasillero();
@@ -125,12 +128,12 @@ public class Vestidor {
             
     		//Thread.sleep(1000); // Simulación de tiempo en el vestidor
     		
-    		System.out.println( monstruo.getNombre() + " tomara sus cosas personales...\n");
-    		//cas.retirarElemento("Cosas Personales");
-    		//Thread.sleep(1000); // Simulación de tiempo en el vestidor
+    		System.out.println(monstruo.getNombre() + " guarda en el casillero y deja su casco.\n");
+    		cas.agregarElemento("Casco");
     		
-    		System.out.println(monstruo.getNombre() + " toma del casillero y se pone olorante y deja su casco\n");
-    		//cas.agregarElemento("Casco");
+    		System.out.println( monstruo.getNombre() + " tomara sus cosas personales...\n");
+    		cas.retirarElemento("Cosas Personales");
+    		//Thread.sleep(1000); // Simulación de tiempo en el vestidor
             
     		// Al salir del vestuario, tiene que salir del casillero. 
             //cas.salirCasillero();
@@ -138,4 +141,6 @@ public class Vestidor {
     		
         }
     }
+    
+    
 }
