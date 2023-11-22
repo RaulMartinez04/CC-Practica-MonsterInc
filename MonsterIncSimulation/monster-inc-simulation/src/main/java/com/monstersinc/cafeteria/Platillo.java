@@ -1,14 +1,11 @@
 package com.monstersinc.cafeteria;
 
-import lombok.Data;
-
 /**
  * Interfaz Platillo que implementa el comportamiento de un Platillo dentro de la cafeteria de Monster Inc
  * 
  * @author Villanueva Garcia Israel. No. 317052147
  * @since Computo Concurrente.
  */
-@Data
 public abstract class Platillo {
 
     // Nombre del platillo.

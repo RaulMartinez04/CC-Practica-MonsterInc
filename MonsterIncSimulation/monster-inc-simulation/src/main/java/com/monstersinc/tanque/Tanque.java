@@ -2,9 +2,6 @@ package com.monstersinc.tanque;
 
 import java.util.concurrent.atomic.AtomicLong;
 
-import lombok.Data;
-
-@Data
 public class Tanque {
 	// Tipos de tanque
 	//capacidad para N unidades de energia

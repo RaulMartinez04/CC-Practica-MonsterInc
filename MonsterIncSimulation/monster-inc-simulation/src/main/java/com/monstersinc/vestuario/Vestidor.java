@@ -26,7 +26,16 @@ public class Vestidor {
     }
     
     public Casillero obtenerCasillero(int idMonstruo) {
-        return casilleros.get(idMonstruo);
+    	for (Casillero casillero : casilleros.values()) {
+            if (casillero.tieneMonstruo(idMonstruo)) {
+            	System.out.println("YA sirve el obtenerCas");
+                return casillero;
+            }
+        }
+        System.out.println("No se encontró el casillero para el monstruo con ID: " + idMonstruo);
+        return null;
+    	
+        //return casilleros.get(idMonstruo);
     }
 
     
@@ -69,7 +78,7 @@ public class Vestidor {
     	// monstruo.getId_hilo()
     	
     	System.out.println("El monstruo " + monstruo.getNombre() +
-    						" con el id:" + monstruo.getId_hilo()+" a entrado al vestidor");
+    						" con el id: " + monstruo.getId_hilo()+" a entrado al vestidor");
     	//verificamos si tiene un casillero asignado
     	if (this.tieneCasilleroAsignado(monstruo.getId_hilo())) {
     		cas= this.obtenerCasillero(monstruo.getId_hilo());
@@ -80,7 +89,7 @@ public class Vestidor {
     	// hasta aqui ya tenemos un casillero asignado, por lo que si no es null
     	if (cas != null) {
             // Realizar acciones en el vestuario
-    		System.out.println( monstruo.getNombre()+ " está en su casillero...");
+    		System.out.println( monstruo.getNombre()+ " está en su casillero: "+cas.getNumero());
             // Es la manera más simple que encontré de simular que algo está tomando tiempo
     		// PERO COMO OBTENGO que EL HILO CON EL ID_HILO se duerma? 
             
@@ -115,18 +124,26 @@ public class Vestidor {
     	System.out.println("El monstruo " + monstruo.getNombre() +
     						" con el id:" + monstruo.getId_hilo()+" a entrado al vestidor despues de una larga jornada de trabajo.");
     	if (this.tieneCasilleroAsignado(monstruo.getId_hilo())) {
+    		System.out.println("True in tiene Casillero asignado");
     		cas= this.obtenerCasillero(monstruo.getId_hilo());
     	} else {
+    		System.out.println("False in tiene Casillero asignado");
     		cas= this.asignarCasillero(monstruo.getId_hilo());
     	}
+    	System.out.println(cas);
     	// hasta aqui ya tenemos un casillero asignado, por lo que si no es null
     	if (cas != null) {
             // Realizar acciones en el vestuario
-    		System.out.println( monstruo.getNombre()+ " está en su casillero...");
+    		System.out.println( monstruo.getNombre()+ " está en su casillero: "+cas.getNumero());
             // Es la manera más simple que encontré de simular que algo está tomando tiempo
     		// PERO COMO OBTENGO que EL HILO CON EL ID_HILO se duerma? 
-            
-    		//Thread.sleep(1000); // Simulación de tiempo en el vestidor
+    		// Simulación de tiempo en el vestidor
+    		try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
     		
     		System.out.println(monstruo.getNombre() + " guarda en el casillero y deja su casco.\n");
     		cas.agregarElemento("Casco");

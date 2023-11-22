@@ -2,15 +2,15 @@ package com.monstersinc.vestuario;
 
 import java.util.ArrayList;
 
-import lombok.Data;
-
-@Data
 public class Casillero {
 	private final int numero;
 	private final ArrayList<String> cosas;
     private int idMonstruoActual = -1; // -1 indica que el casillero está libre
     //private final Lock lock = new ReentrantLock();
 
+    public int getNumero() {
+    	return this.numero;
+    }
     public Casillero(int numero) {
         this.numero = numero;
         this.cosas = new ArrayList<>();
@@ -18,7 +18,12 @@ public class Casillero {
         this.cosas.add("Olorante");
     }
     
-    public boolean tieneMonstruo(int idMonstruo) {
+    @Override
+	public String toString() {
+		return "Casillero [numero=" + numero + ", cosas=" + cosas + ", idMonstruoActual=" + idMonstruoActual + "]";
+	}
+
+	public boolean tieneMonstruo(int idMonstruo) {
         //lock.lock();
         try {
             return idMonstruoActual == idMonstruo;
