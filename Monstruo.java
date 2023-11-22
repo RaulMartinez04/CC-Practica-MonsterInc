@@ -20,7 +20,10 @@ public abstract class Monstruo implements Runnable {
 
     // ID del hilo.
     public int id_hilo;
-
+    
+    public String getNombre() {
+        return nombre;
+    }
 
     // Peso del monstruo.
     protected double peso;
@@ -31,6 +34,8 @@ public abstract class Monstruo implements Runnable {
     protected Cafeteria cafeteria;
 
     protected Sanitarios sanitarios;
+
+    protected Vestidor vestidor = Vestidor.getInstance();
     /**
      * Constructor de Monstruo.
      * @param cafeteria que va a usar.
@@ -94,7 +99,7 @@ public abstract class Monstruo implements Runnable {
      * Simulacion del monstruo al ir al vestuario.
      */
     public void ir_al_vestuario() {
-
+        vestidor.usarVestidor(this);
     }
 
     /**
@@ -147,6 +152,7 @@ public abstract class Monstruo implements Runnable {
     public void run() {
 
         // Antes debe ir al vestuario.
+        vestidor.usarVestidor(this);
 
         int iterador = 0;
 
@@ -204,6 +210,6 @@ public abstract class Monstruo implements Runnable {
         }
         
         // Debe ir al vestuario antes de irse.
-
+        vestidor.usarVestidorSalida(this);
     }
 }
