@@ -9,16 +9,16 @@ package com.monstersinc.cafeteria;
 public abstract class Platillo {
 
     // Nombre del platillo.
-    protected String nombre;
+    public String nombre;
 
     // Identificador del platillo.
-    protected int identificador_platillo;
+    public int identificador_platillo;
 
     // Cantidad de carne.
-    protected int cantidad_carne;
+    public int cantidad_carne;
 
     // Cantidad de vegetales.
-    protected int cantidad_vegetales;
+    public int cantidad_vegetales;
 
     /**
      * Obten el nombre del platillo.

@@ -5,7 +5,6 @@ import com.monstersinc.aux.ColorsAthena;
 import com.monstersinc.item.Mesa;
 import com.monstersinc.monstruo.Monstruo;
 
-
 /**
  * Clase Ayudante de cocina que implementa el comportamiento de un Cheff dentro
  * de la cafeteria de Monster Inc
@@ -52,8 +51,8 @@ public class Recepcionista extends Oficio {
         for (int i = 0; i < lista_De_Mesas.size(); i++) {
             if (lista_De_Mesas.get(i).ocupar_lugar(cliente)) {
                 System.out.println(
-                        ColorsAthena.rojo("El recepcionista llevo al monstruo " + cliente.getNombre() 
-                        		+ " a la mesa " + lista_De_Mesas.get(i).get_id_mesa()));
+                        ColorsAthena.rojo("El recepcionista llevo al monstruo " + cliente.nombre + " a la mesa "
+                                + lista_De_Mesas.get(i).get_id_mesa()));
                 return true;
             }
         }

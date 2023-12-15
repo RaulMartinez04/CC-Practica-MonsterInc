@@ -9,18 +9,18 @@ package com.monstersinc.item;
 
 public abstract class Item {
 
-    protected int dano = 0;
+    public int dano = 0;
 
-    protected String nombre;
+    public String nombre;
 
-    protected boolean roto = false;
+    public boolean roto = false;
     
     /**
      * Regresa el dano del objeto hasta el momento.
      * 
      * @return ID del oficio.
      */
-    protected int get_porcentaje_de_dano() {
+    public int get_porcentaje_de_dano() {
         return this.dano;
     }
 
@@ -29,7 +29,7 @@ public abstract class Item {
      * 
      * @param dano nuevo para el objeto
      */
-    protected void aumentar_porcentaje_de_dano(int dano) {
+    public void aumentar_porcentaje_de_dano(int dano) {
 
         this.dano += dano;
 
@@ -45,7 +45,7 @@ public abstract class Item {
      * 
      * @return nombre del item.
      */
-    protected String get_Nombre() {
+    public String get_Nombre() {
         return this.nombre;
     }
 
@@ -54,14 +54,14 @@ public abstract class Item {
      * 
      * @return True si esta roto, false si no esta roto.
      */
-    protected boolean esta_roto() {
+    public boolean esta_roto() {
         return this.roto;
     }
 
     /**
      * Resetea el estado del objeto a ceros, como una reparacion.
      */
-    protected void set_item(){
+    public void set_item(){
        this.dano = 0;
        this.roto = false;
     }

@@ -53,8 +53,6 @@ public class Cafeteria {
 
     // Lista de clientes en espera para ser atendidos en la cafeteria.
     private volatile List<Monstruo> lista_de_espera = new ArrayList<>();
-    
-    //private Vestidor vestidor = Vestidor.getInstance();
 
     /**
      * Constructor de la clase cafeteria.
@@ -79,8 +77,8 @@ public class Cafeteria {
             throws InterruptedException {
 
         // Indicas que llegaste a la cafeteria.
-        System.out.println(ColorsAthena.rojo("El cocinero ayudante " + monstruo.getNombre() + " llega a la cafeteria"));
-        Ayudante_cocina ayudante = new Ayudante_cocina(monstruo.getId_hilo());
+        System.out.println(ColorsAthena.rojo("El cocinero ayudante " + monstruo.nombre + " llega a la cafeteria"));
+        Ayudante_cocina ayudante = new Ayudante_cocina(monstruo.id_hilo);
         ayudante.set_lista_platillos(lista_normal);
 
         // Si llegas temprano esperas a que este listo tu jefe y el recepcionista.
@@ -99,10 +97,10 @@ public class Cafeteria {
                     for (int j = 0; j <= lista_De_Mesas.get(g).lugares_ocupados(); j++) {
                         Platillo platillo = genera_Comida(lista_normal);
                         System.out.println(ColorsAthena.rojo("El camarero " + ayudante.get_id_hilo() + " atiende a " +
-                                lista_De_Mesas.get(g).obtener_lugar(j).getNombre() + " y recoge su pedido."));
-                        ayudante.preparar_comida(platillo.identificador_platillo, inventario, monstruo.getNombre());
+                                lista_De_Mesas.get(g).obtener_lugar(j).nombre + " y recoge su pedido."));
+                        ayudante.preparar_comida(platillo.identificador_platillo, inventario, monstruo.nombre);
                         System.out.println(ColorsAthena.rojo(
-                                "El monstruo " + lista_De_Mesas.get(g).obtener_lugar(j).getNombre() +
+                                "El monstruo " + lista_De_Mesas.get(g).obtener_lugar(j).nombre +
                                         " fue atendido por el camarero " + ayudante.get_id_hilo()));
                         lista_De_Mesas.get(g).desocupar_lugar(j);
                     }
@@ -123,12 +121,12 @@ public class Cafeteria {
      */
     private void cheff_comportamiento(Monstruo monstruo, long tiempoInicio, long minutos) throws InterruptedException {
         // Prepara lo necesario antes de abrir la cafeteria.
-        System.out.println(ColorsAthena.rojo("El cheff profesional " + monstruo.getNombre() + " abre la cafeteria"));
+        System.out.println(ColorsAthena.rojo("El cheff profesional " + monstruo.nombre + " abre la cafeteria"));
         Chef_profesional aux = new Chef_profesional(monstruo.id_hilo);
         aux.set_lista_platillos(lista_profesional);
         aux.llenar_Inventario(this.inventario, 0);
         aux.llenar_Inventario(this.inventario, 1);
-        System.out.println(ColorsAthena.rojo("El cheff profesional " + monstruo.getNombre()
+        System.out.println(ColorsAthena.rojo("El cheff profesional " + monstruo.nombre
                 + " llena de alimentos el Inventario, con 1000 de carne y 1000 de vegetales"));
 
         // Indicas que estas listo para empezar con el dia.
@@ -150,10 +148,10 @@ public class Cafeteria {
                     for (int j = 0; j <= lista_De_Mesas.get(g).lugares_ocupados(); j++) {
                         Platillo platillo = genera_Comida(lista_normal);
                         System.out.println(ColorsAthena.rojo("El camarero " + aux.get_id_hilo() + " atiende a " +
-                                lista_De_Mesas.get(g).obtener_lugar(j).getNombre() + " y recoge su pedido."));
-                        aux.preparar_comida(platillo.identificador_platillo, inventario, monstruo.getNombre());
+                                lista_De_Mesas.get(g).obtener_lugar(j).nombre + " y recoge su pedido."));
+                        aux.preparar_comida(platillo.identificador_platillo, inventario, monstruo.nombre);
                         System.out.println(ColorsAthena.rojo(
-                                "El monstruo " + lista_De_Mesas.get(g).obtener_lugar(j).getNombre() +
+                                "El monstruo " + lista_De_Mesas.get(g).obtener_lugar(j).nombre +
                                         " fue atendido por el camarero " + aux.get_id_hilo()));
                         lista_De_Mesas.get(g).desocupar_lugar(j);
                     }
@@ -175,7 +173,7 @@ public class Cafeteria {
             throws InterruptedException {
         // Llegas y preparas lo necesario para iniciar el dia.
         Recepcionista recepcionista = new Recepcionista(monstruo.id_hilo);
-        System.out.println(ColorsAthena.rojo("El recepcionista " + monstruo.getNombre()
+        System.out.println(ColorsAthena.rojo("El recepcionista " + monstruo.nombre
                 + " llega a la cafeteria y asigna las siguientes mesas: "));
         for (int j = 0; j < 5; j++) {
             Mesa mesa_aux = new Mesa(j);
@@ -202,7 +200,7 @@ public class Cafeteria {
                     break;
                 } else {
                     System.out.println(ColorsAthena.rojo("Ya no hay lugares en la cafeteria, regresa pronto monstruo "
-                            + lista_de_espera.get(j).getNombre()));
+                            + lista_de_espera.get(j).nombre));
                 }
             }
             semaforo1.release();
@@ -220,7 +218,7 @@ public class Cafeteria {
      */
     private void cliente_comportamiento(Monstruo monstruo) throws InterruptedException {
         // Te metes a la fila de espera.
-        System.out.println(ColorsAthena.rojo("El monstruo " + monstruo.getNombre()
+        System.out.println(ColorsAthena.rojo("El monstruo " + monstruo.nombre
                 + " llega a la cafeteria a comer"));
 
         // Para simulacion.
@@ -248,17 +246,17 @@ public class Cafeteria {
 
             // Si es cheff profesional hara esto:
             case 3:
-                cheff_comportamiento(monstruo, tiempoInicio, 2);
+                cheff_comportamiento(monstruo, tiempoInicio, 1);
                 break;
 
             // Si es ayudante hara esto:
             case 0:
-                ayudante_comportamiento(monstruo, tiempoInicio, 2);
+                ayudante_comportamiento(monstruo, tiempoInicio, 1);
                 break;
 
             // Si es recepcionista hara esto:
             case 1:
-                recepcionista_comportamiento(monstruo, tiempoInicio, 2);
+                recepcionista_comportamiento(monstruo, tiempoInicio, 1);
                 break;
 
             // Si es cualquier otro monstruo distinto al persnal.

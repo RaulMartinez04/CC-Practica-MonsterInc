@@ -7,11 +7,11 @@ import com.monstersinc.monstruo.Monstruo;
 
 public class Sanitario {
 
-	protected int tipo;
+	public int tipo;
 
-	protected volatile int retretesDisponibles;
+	public volatile int retretesDisponibles;
 
-	protected Queue<Monstruo> fila;
+	public Queue<Monstruo> fila;
 
 	/**
 	 * @param tipo 

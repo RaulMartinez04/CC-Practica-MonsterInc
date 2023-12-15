@@ -16,10 +16,10 @@ import com.monstersinc.vestuario.Vestidor;
 public abstract class Monstruo implements Runnable {
 
     // Nombre del monstruo.
-    protected String nombre;
+    public String nombre;
 
     // Tipo de monstruo.
-    protected int tipo;
+    public int tipo;
 
     // Trabajo del monstruo.
     public Oficio trabajo;
@@ -29,16 +29,16 @@ public abstract class Monstruo implements Runnable {
 
 
     // Peso del monstruo.
-    protected double peso;
+    public double peso;
 
     // Altura del monstruo.
-    protected double altura;
+    public double altura;
 
-    protected Cafeteria cafeteria;
+    public Cafeteria cafeteria;
 
-    protected Sanitarios sanitarios;
+    public Sanitarios sanitarios;
     
-    protected Vestidor vestidor = Vestidor.getInstance();
+    public Vestidor vestidor = Vestidor.getInstance();
     /**
      * Constructor de Monstruo.
      * @param cafeteria que va a usar.
@@ -135,7 +135,7 @@ public abstract class Monstruo implements Runnable {
 
             // No tienes trabajo??
             default:
-                System.out.println("Algo no se esta asignando bienn )):");
+               // System.out.println("Algo no se esta asignando bienn )):");
                 break;
         }
     }

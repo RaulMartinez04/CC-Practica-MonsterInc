@@ -10,7 +10,7 @@ package com.monstersinc.oficio;
 public abstract class Oficio {
 
     // Id del Hilo, del monstruo.
-    protected int id_hilo;
+    public int id_hilo;
 
     public Oficio(int id_hilo) {
         this.id_hilo = id_hilo;
