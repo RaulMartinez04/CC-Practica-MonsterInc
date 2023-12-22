@@ -1,9 +1,9 @@
-package com.monstersinc.vestuario;
+package tiposlistos.concurrente.vestuario;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import com.monstersinc.monstruo.Monstruo;
+import tiposlistos.concurrente.monstruo.Monstruo;
 
 public class Vestidor {
 	

@@ -1,8 +1,8 @@
-package com.monstersinc.vestuario;
+package tiposlistos.concurrente.vestuario;
 
-import com.monstersinc.monstruo.Peludos;
-import com.monstersinc.oficio.Ayudante_cocina;
-import com.monstersinc.oficio.Chef_profesional;
+import tiposlistos.concurrente.monstruo.Peludos;
+import tiposlistos.concurrente.oficio.Ayudante_cocina;
+import tiposlistos.concurrente.oficio.Chef_profesional;
 
 public class VestidorTest {
 

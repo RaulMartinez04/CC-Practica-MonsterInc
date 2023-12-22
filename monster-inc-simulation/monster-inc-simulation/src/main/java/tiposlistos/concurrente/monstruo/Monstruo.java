@@ -1,10 +1,11 @@
-package com.monstersinc.monstruo;
+package tiposlistos.concurrente.monstruo;
+
 import java.util.Random;
 
-import com.monstersinc.bannos.Sanitarios;
-import com.monstersinc.cafeteria.Cafeteria;
-import com.monstersinc.oficio.Oficio;
-import com.monstersinc.vestuario.Vestidor;
+import tiposlistos.concurrente.bannos.Sanitarios;
+import tiposlistos.concurrente.cafeteria.Cafeteria;
+import tiposlistos.concurrente.oficio.Oficio;
+import tiposlistos.concurrente.vestuario.Vestidor;
 
 /**
  * Clase Monstruo que implementa el comportamiento de un Monstruo dentro

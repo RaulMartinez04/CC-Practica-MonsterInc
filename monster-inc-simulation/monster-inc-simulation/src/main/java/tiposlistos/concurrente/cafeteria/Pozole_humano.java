@@ -1,4 +1,4 @@
-package com.monstersinc.cafeteria;
+package tiposlistos.concurrente.cafeteria;
 /**
  * Clase Pozole de humano que implementa el
  * comportamiento de un Platillo dentro de la 

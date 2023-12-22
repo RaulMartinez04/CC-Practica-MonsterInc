@@ -1,4 +1,4 @@
-package com.monstersinc.item;
+package tiposlistos.concurrente.item;
 /**
  * Interfaz Item que implementa el comportamiento de un Item dentro de Monster
  * Inc

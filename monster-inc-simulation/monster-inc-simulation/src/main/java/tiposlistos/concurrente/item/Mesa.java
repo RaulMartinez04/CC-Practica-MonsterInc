@@ -1,9 +1,9 @@
-package com.monstersinc.item;
+package tiposlistos.concurrente.item;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import com.monstersinc.monstruo.Monstruo;
+import tiposlistos.concurrente.monstruo.Monstruo;
 
 /**
  * Clase Ayudante de cocina que implementa el comportamiento de un Cheff dentro

@@ -1,4 +1,4 @@
-package com.monstersinc.cafeteria;
+package tiposlistos.concurrente.cafeteria;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,14 +6,13 @@ import java.util.Random;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import com.monstersinc.aux.ColorsAthena;
-import com.monstersinc.aux.Tiempo;
-import com.monstersinc.item.Mesa;
-import com.monstersinc.monstruo.Monstruo;
-import com.monstersinc.oficio.Ayudante_cocina;
-import com.monstersinc.oficio.Chef_profesional;
-import com.monstersinc.oficio.Recepcionista;
-import com.monstersinc.vestuario.Vestidor;
+import tiposlistos.concurrente.aux.ColorsAthena;
+import tiposlistos.concurrente.aux.Tiempo;
+import tiposlistos.concurrente.item.Mesa;
+import tiposlistos.concurrente.monstruo.Monstruo;
+import tiposlistos.concurrente.oficio.Ayudante_cocina;
+import tiposlistos.concurrente.oficio.Chef_profesional;
+import tiposlistos.concurrente.oficio.Recepcionista;
 
 /**
  * Clase Cafeteria de Monster Inc.

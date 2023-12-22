@@ -1,6 +1,6 @@
-package com.monstersinc.oficio;
+package tiposlistos.concurrente.oficio;
 
-import com.monstersinc.cafeteria.Platillo;
+import tiposlistos.concurrente.cafeteria.Platillo;
 
 /**
  * Clase Ayudante de cocina que implementa el comportamiento de un Cheff dentro

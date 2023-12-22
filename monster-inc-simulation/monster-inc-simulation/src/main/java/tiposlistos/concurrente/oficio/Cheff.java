@@ -1,8 +1,8 @@
-package com.monstersinc.oficio;
+package tiposlistos.concurrente.oficio;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import com.monstersinc.aux.ColorsAthena;
-import com.monstersinc.cafeteria.Platillo;
+import tiposlistos.concurrente.aux.ColorsAthena;
+import tiposlistos.concurrente.cafeteria.Platillo;
 
 /**
  * Interfaz Cheff que implementa el comportamiento de los trabajadores del tipo

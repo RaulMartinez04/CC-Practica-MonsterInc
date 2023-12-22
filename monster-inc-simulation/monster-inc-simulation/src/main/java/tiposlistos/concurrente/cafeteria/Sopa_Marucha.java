@@ -1,4 +1,4 @@
-package com.monstersinc.cafeteria;
+package tiposlistos.concurrente.cafeteria;
 /**
  * Clase Sopa marucha que implementa el comportamiento 
  * de un Platillo dentro de la cafeteria de Monster Inc.

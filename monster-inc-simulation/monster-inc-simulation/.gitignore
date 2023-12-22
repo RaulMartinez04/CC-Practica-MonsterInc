@@ -1,0 +1,57 @@
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Maven generated files and directories
+target/
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Visual Studio Code (vscode) files
+.vscode/
+
+# Visual Studio (vs) files
+*.suo
+*.user
+*.sln.docstates
+
+# Compiled Java class files
+*.class
+
+# Compiled JUnit test class files
+*.hprof
+*.class
+
+# Compiled Clojure files
+*.class
+
+# Generated JavaDoc files
+*.html
+
+# Generated Gradle files
+.gradle/
+
+# Generated Spring Boot files
+build/
+
+# Generated VS Code folders
+.vscode/

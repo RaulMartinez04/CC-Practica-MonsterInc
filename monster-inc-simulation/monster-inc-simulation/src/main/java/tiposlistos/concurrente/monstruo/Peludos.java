@@ -1,7 +1,7 @@
-package com.monstersinc.monstruo;
+package tiposlistos.concurrente.monstruo;
 
-import com.monstersinc.cafeteria.Cafeteria;
-import com.monstersinc.oficio.Oficio;
+import tiposlistos.concurrente.cafeteria.Cafeteria;
+import tiposlistos.concurrente.oficio.Oficio;
 
 public class Peludos extends Monstruo{
 

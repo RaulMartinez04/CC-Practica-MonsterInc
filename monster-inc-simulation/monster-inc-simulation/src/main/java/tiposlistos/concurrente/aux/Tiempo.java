@@ -1,4 +1,4 @@
-package com.monstersinc.aux;
+package tiposlistos.concurrente.aux;
 
 /**
  * Clase Tiempo que te da el tiempo en vida real de ejecucion.

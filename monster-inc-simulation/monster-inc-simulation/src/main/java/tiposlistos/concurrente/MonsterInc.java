@@ -1,12 +1,12 @@
-package com.monstersinc;
+package tiposlistos.concurrente;
 
-import com.monstersinc.cafeteria.Cafeteria;
-import com.monstersinc.monstruo.Monstruo;
-import com.monstersinc.monstruo.Peludos;
-import com.monstersinc.oficio.Ayudante_cocina;
-import com.monstersinc.oficio.Camarero;
-import com.monstersinc.oficio.Chef_profesional;
-import com.monstersinc.oficio.Recepcionista;
+import tiposlistos.concurrente.cafeteria.Cafeteria;
+import tiposlistos.concurrente.monstruo.Monstruo;
+import tiposlistos.concurrente.monstruo.Peludos;
+import tiposlistos.concurrente.oficio.Ayudante_cocina;
+import tiposlistos.concurrente.oficio.Camarero;
+import tiposlistos.concurrente.oficio.Chef_profesional;
+import tiposlistos.concurrente.oficio.Recepcionista;
 
 public class MonsterInc {
 

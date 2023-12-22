@@ -1,6 +1,6 @@
-package com.monstersinc.bannos;
+package tiposlistos.concurrente.bannos;
 
-import com.monstersinc.monstruo.Monstruo;
+import tiposlistos.concurrente.monstruo.Monstruo;
 
 public class SanitarioEspecial extends Sanitario {
 

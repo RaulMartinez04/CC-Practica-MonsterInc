@@ -1,4 +1,4 @@
-package com.monstersinc.oficio;
+package tiposlistos.concurrente.oficio;
 /**
  * Clase Ayudante de cocina que implementa el comportamiento de un Cheff dentro
  * de la cafeteria de Monster Inc

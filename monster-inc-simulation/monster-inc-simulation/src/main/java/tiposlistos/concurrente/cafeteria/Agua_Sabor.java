@@ -1,4 +1,4 @@
-package com.monstersinc.cafeteria;
+package tiposlistos.concurrente.cafeteria;
 
 /**
  * Clase Agua de sabor que implementa el comportamiento de un Platillo dentro de la cafeteria de Monster Inc
@@ -7,7 +7,6 @@ package com.monstersinc.cafeteria;
  * @since Computo Concurrente.
  */
 public class Agua_Sabor extends Platillo {
-
     /**
      * Constructor del platillo agua de sabor.
      */

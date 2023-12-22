@@ -1,4 +1,4 @@
-package com.monstersinc.vestuario;
+package tiposlistos.concurrente.vestuario;
 
 import java.util.ArrayList;
 

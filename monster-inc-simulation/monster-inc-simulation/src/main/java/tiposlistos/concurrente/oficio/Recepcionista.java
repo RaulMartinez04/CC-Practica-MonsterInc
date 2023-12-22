@@ -1,9 +1,9 @@
-package com.monstersinc.oficio;
+package tiposlistos.concurrente.oficio;
 import java.util.List;
 
-import com.monstersinc.aux.ColorsAthena;
-import com.monstersinc.item.Mesa;
-import com.monstersinc.monstruo.Monstruo;
+import tiposlistos.concurrente.aux.ColorsAthena;
+import tiposlistos.concurrente.item.Mesa;
+import tiposlistos.concurrente.monstruo.Monstruo;
 
 /**
  * Clase Ayudante de cocina que implementa el comportamiento de un Cheff dentro

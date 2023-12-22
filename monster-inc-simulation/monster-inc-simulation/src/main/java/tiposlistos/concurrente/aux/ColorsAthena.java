@@ -1,4 +1,4 @@
-package com.monstersinc.aux;
+package tiposlistos.concurrente.aux;
 
 /**
  * Clase que permite pintar las letras de la consola

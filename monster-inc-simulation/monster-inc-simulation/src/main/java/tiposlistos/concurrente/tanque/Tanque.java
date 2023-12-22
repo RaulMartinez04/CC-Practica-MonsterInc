@@ -1,4 +1,4 @@
-package com.monstersinc.tanque;
+package tiposlistos.concurrente.tanque;
 
 import java.util.concurrent.atomic.AtomicLong;
 

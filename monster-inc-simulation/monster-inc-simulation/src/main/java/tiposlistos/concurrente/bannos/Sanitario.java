@@ -1,9 +1,9 @@
-package com.monstersinc.bannos;
+package tiposlistos.concurrente.bannos;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-import com.monstersinc.monstruo.Monstruo;
+import tiposlistos.concurrente.monstruo.Monstruo;
 
 public class Sanitario {
 

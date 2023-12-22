@@ -1,4 +1,4 @@
-package com.monstersinc.oficio;
+package tiposlistos.concurrente.oficio;
 /**
  * Interfaz oficio que implementa el comportamiento 
  * de los trabajos de los monstruos dentro de Monster Inc.
