@@ -55,3 +55,9 @@ build/
 
 # Generated VS Code folders
 .vscode/
+
+# Archivos y carpetas a ignorar
+.classpath
+.project
+.settings/
+bin/
